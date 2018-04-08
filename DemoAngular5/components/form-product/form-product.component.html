@@ -1,0 +1,34 @@
+<form>
+	<legend>Add Product</legend>
+	
+	<div class="col-md-12">
+		<ng-template [ngIf]="checkNull">
+			<div class="alert alert-danger">{{ checkNull }}</div>	
+		</ng-template>
+	</div>
+
+	<div class="form-group">
+		<label for="">Product Name</label>
+		<input type="text" class="form-control" name="name" placeholder="Name field" [(ngModel)]="product.name">
+	</div>
+
+	<div class="form-group">
+		<label for="">Price</label>
+		<input type="number" name="price" class="form-control" placeholder="Price field" [(ngModel)]="product.price">
+	</div>
+
+	<div class="form-group">
+		<label for="">Status</label>
+		<div class="radio">
+			<label>
+				<input type="radio" name="status" [value]="true" [(ngModel)]="product.status" />
+				Còn Hàng <br>
+			</label>
+			<label>
+				<input type="radio" name="status" [value]="false" [(ngModel)]="product.status"  />
+				Hết Hàng
+			</label>
+		</div>
+	</div>
+	<button type="button" (click)="onActionForm()" class="btn btn-primary">Submit</button>
+</form>
